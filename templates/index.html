@@ -1,0 +1,822 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site_url }}/#organization",
+      "name": "TechOrigin",
+      "url": "{{ site_url }}",
+      "logo": "{{ site_url }}{{ url_for('static', filename='images/logo/techorigin-mark.png') }}",
+      "description": "Technology and software development company building modern web applications, Python-based systems and reliable cloud infrastructure.",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "{{ founder.name }}",
+          "jobTitle": "{{ founder.role }}",
+          "url": "{{ founder.website }}",
+          "email": "{{ founder.email }}",
+          "sameAs": [
+            "{{ founder.github }}",
+            "{{ founder.instagram[0] }}",
+            "{{ founder.instagram[1] }}"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "{{ cofounder.name }}",
+          "jobTitle": "{{ cofounder.role }}"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site_url }}/#website",
+      "url": "{{ site_url }}",
+      "name": "TechOrigin",
+      "description": "Building technology. Creating possibilities.",
+      "publisher": {"@id": "{{ site_url }}/#organization"}
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+  <section class="hero" id="home" data-section>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Technology &amp; Software Development</p>
+        <h1>Building Technology.<br><span class="grad">Creating Possibilities.</span></h1>
+        <p class="hero-lede">TechOrigin is a technology-driven company focused on building modern software, developing intelligent digital solutions and creating reliable technology infrastructure. We turn ideas into practical digital products through development, innovation and engineering.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">See Our Work <span class="arrow" aria-hidden="true">&#8594;</span></a>
+          <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        </div>
+        <ul class="hero-points" aria-label="Areas of focus">
+          <li>Full-stack development</li>
+          <li>Cloud infrastructure</li>
+          <li>Affordable digital products</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" data-tilt>
+        <span class="visual-glow" aria-hidden="true"></span>
+        <span class="orbit orbit-one" aria-hidden="true"></span>
+        <span class="orbit orbit-two" aria-hidden="true"></span>
+        <img class="visual-mark" src="{{ url_for('static', filename='images/logo/techorigin-mark.png') }}" alt="" width="512" height="512" loading="lazy">
+
+        <div class="hero-console hero-terminal" data-terminal>
+          <div class="console-top">
+            <span class="console-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="console-title">visitor@techorigin: ~</span>
+            <span class="console-tag terminal-live">interactive</span>
+          </div>
+
+          <div class="terminal-output" data-terminal-output role="log" aria-live="polite" aria-label="Terminal output" tabindex="0">
+            <p class="terminal-line"><span class="terminal-accent">TechOrigin Terminal</span> <span class="terminal-dim">v1.0</span></p>
+            <p class="terminal-line terminal-dim">Explore the company, the work and the direction behind it.</p>
+            <p class="terminal-line">Type <span class="terminal-key">help</span> to see everything you can ask.</p>
+            <p class="terminal-line terminal-dim">Try <span class="terminal-key">projects</span>, <span class="terminal-key">founders</span> or <span class="terminal-key">cloud</span>.</p>
+          </div>
+
+          <form class="terminal-form" data-terminal-form autocomplete="off">
+            <label class="sr-only" for="terminal-command">Terminal command</label>
+            <span class="terminal-prompt" aria-hidden="true">visitor@techorigin:~$</span>
+            <input id="terminal-command" name="command" type="text" inputmode="text" enterkeyhint="send" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="terminal-hint" data-terminal-input>
+            <button class="terminal-submit" type="submit" aria-label="Run command">
+              <svg aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
+            </button>
+          </form>
+
+          <div class="terminal-suggestions" aria-label="Suggested commands">
+            <span class="terminal-suggest-label">Try</span>
+            <button type="button" data-terminal-command="help">help</button>
+            <button type="button" data-terminal-command="projects">projects</button>
+            <button type="button" data-terminal-command="founders">founders</button>
+            <button type="button" data-terminal-command="cloud">cloud</button>
+          </div>
+          <p class="sr-only" id="terminal-hint">Press Enter to run a command. Use the up and down arrow keys for history, and Tab to autocomplete a command.</p>
+        </div>
+
+        <div class="float-card float-a" aria-hidden="true">
+          <span class="float-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg>
+          </span>
+          <div><strong>Full-stack</strong><span>Interface to server</span></div>
+        </div>
+        <div class="float-card float-b" aria-hidden="true">
+          <span class="float-icon float-icon-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .3-9 6 6 0 0 0-11.6 1.5A4 4 0 0 0 6.5 19h11Z"/></svg>
+          </span>
+          <div><strong>Cloudflare</strong><span>DNS &middot; edge</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Full-stack Development</span><span>Web Applications</span><span>Python</span><span>Cloud Infrastructure</span><span>Cloudflare</span><span>Database Systems</span><span>Deployment</span><span>Digital Solutions</span>
+        <span>Full-stack Development</span><span>Web Applications</span><span>Python</span><span>Cloud Infrastructure</span><span>Cloudflare</span><span>Database Systems</span><span>Deployment</span><span>Digital Solutions</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about" data-section>
+    <div class="container about-grid">
+      <div class="about-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-index">01</span> About TechOrigin</p>
+        <h2>A software company built by <span class="serif">developers</span>, for the real world.</h2>
+        <p class="lead">TechOrigin is an independent technology and software development company built by young developers who care about how things are designed, built and run.</p>
+        <p>We work across the stack &mdash; from user-facing interfaces and application logic to databases, servers and the infrastructure that keeps a product online. Our approach is practical: start with a real problem, choose technology that fits, and build solutions that can be deployed, maintained and improved.</p>
+        <p>Alongside application development, we work with cloud servers and Cloudflare to configure, secure and manage the environments our projects run on. As a small, hands-on team, we stay close to every part of the work &mdash; development, deployment and the details in between.</p>
+        <div class="about-tags" aria-label="Company characteristics">
+          <span>Independent</span>
+          <span>Developer-led</span>
+          <span>Product-focused</span>
+          <span>Infrastructure-aware</span>
+        </div>
+      </div>
+
+      <aside class="principles glass-card reveal" style="--delay: 120ms" aria-label="How we work">
+        <span class="card-label">How we work</span>
+        <ol class="principle-list">
+          <li>
+            <span class="principle-index" aria-hidden="true">01</span>
+            <div>
+              <h3>Build with purpose</h3>
+              <p>Software should solve a real problem, not simply demonstrate a feature.</p>
+            </div>
+          </li>
+          <li>
+            <span class="principle-index" aria-hidden="true">02</span>
+            <div>
+              <h3>Own the stack</h3>
+              <p>We work from the interface through to the server and the deployment behind it.</p>
+            </div>
+          </li>
+          <li>
+            <span class="principle-index" aria-hidden="true">03</span>
+            <div>
+              <h3>Keep it reliable</h3>
+              <p>Clean implementation, thoughtful infrastructure and systems that can be maintained.</p>
+            </div>
+          </li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section team" id="team" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">02</span> Meet the Founders</p>
+        <h2>The people behind <span class="serif">TechOrigin</span>.</h2>
+        <p class="section-lede">Two developers building the company from the ground up &mdash; and staying involved in every layer of the work.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="profile-card glass-card reveal">
+          <div class="profile-media">
+            <img src="{{ url_for('static', filename='images/founders/img.png') }}" alt="Kamleshvar GV, Founder of TechOrigin" width="1400" height="786" loading="lazy" decoding="async">
+            <span class="profile-badge"><span class="badge-dot" aria-hidden="true"></span> Founder</span>
+            <div class="profile-overlay">
+              <h3>Kamleshvar GV</h3>
+              <p>Founder &middot; Full-stack developer</p>
+            </div>
+          </div>
+          <div class="profile-body">
+            <p class="profile-meta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 10 10-5 10 5-10 5L2 10Z"/><path d="M6 12v4c0 2 2.7 3.5 6 3.5s6-1.5 6-3.5v-4"/></svg>
+              Class 12 &middot; Sandipani Vidyalaya
+            </p>
+            <p class="profile-bio">Kamleshvar GV is a student developer and technology entrepreneur focused on building practical software. His work spans full-stack development, Python applications, web technologies, database-driven systems and cloud infrastructure. He works across the entire product path &mdash; from interface and application logic to deployment and server management.</p>
+            <p class="profile-bio">He also manages cloud servers and configures Cloudflare-powered infrastructure, including DNS, secure application exposure and deployment workflows. As Outreach Lead at Bridge the Gap Robotics, he contributes to communication, collaboration and technology initiatives.</p>
+            <ul class="chip-list" aria-label="Kamleshvar's technologies">
+              <li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li><li>Flask</li><li>Cloudflare</li><li>Cloud servers</li>
+            </ul>
+            <div class="profile-links">
+              <a class="profile-link" href="https://kamleshvar.online" target="_blank" rel="noopener noreferrer">Personal website <span class="arrow" aria-hidden="true">&#8599;</span></a>
+              <a class="profile-link" href="https://bridgethegaprobotics.com/" target="_blank" rel="noopener noreferrer">Bridge the Gap Robotics <span class="arrow" aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="profile-card glass-card reveal" style="--delay: 120ms">
+          <div class="profile-media">
+            <img src="{{ url_for('static', filename='images/founders/annamalai.jpg') }}" alt="M. Annamalai, Co-Founder of TechOrigin" width="892" height="1200" loading="lazy" decoding="async">
+            <span class="profile-badge"><span class="badge-dot" aria-hidden="true"></span> Co-Founder</span>
+            <div class="profile-overlay">
+              <h3>M. Annamalai</h3>
+              <p>Co-Founder &middot; Full-stack developer</p>
+            </div>
+          </div>
+          <div class="profile-body">
+            <p class="profile-meta">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 10 10-5 10 5-10 5L2 10Z"/><path d="M6 12v4c0 2 2.7 3.5 6 3.5s6-1.5 6-3.5v-4"/></svg>
+              Class 12 &middot; Sandipani Vidyalaya
+            </p>
+            <p class="profile-bio">M. Annamalai is a student developer and technology enthusiast who contributes to building web-based applications and digital solutions. His work covers full-stack development with Python, JavaScript, HTML and CSS, with an emphasis on clean implementation and collaborative problem-solving.</p>
+            <p class="profile-bio">He also serves as Coordinator at Bridge the Gap Robotics, supporting coordination, teamwork and organisational responsibilities across the team&rsquo;s initiatives.</p>
+            <ul class="chip-list" aria-label="Annamalai's technologies">
+              <li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
+            </ul>
+            <div class="profile-links">
+              <a class="profile-link" href="https://bridgethegaprobotics.com/" target="_blank" rel="noopener noreferrer">Bridge the Gap Robotics <span class="arrow" aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section audience" id="audience" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">03</span> Who We Build For</p>
+        <h2>Technology should work for <span class="serif">everyone</span>.</h2>
+        <p class="section-lede">Our products are shaped around the people who need practical software most: students, institutions, small businesses and the developers building what comes next.</p>
+      </div>
+
+      <div class="market-grid">
+        {% for market in target_markets %}
+        <article class="market-card glass-card market-{{ market.accent }} reveal" style="--delay: {{ loop.index0 * 80 }}ms">
+          <div class="market-top">
+            <span class="market-icon"><svg aria-hidden="true"><use href="#icon-{{ market.icon }}"></use></svg></span>
+            <span class="market-index" aria-hidden="true">{{ market.index }}</span>
+          </div>
+          <h3>{{ market.name }}</h3>
+          <ul class="market-audiences" aria-label="Who this serves">
+            {% for audience in market.audiences %}
+            <li>{{ audience }}</li>
+            {% endfor %}
+          </ul>
+          <div class="market-solutions">
+            <span class="card-label">Solutions</span>
+            <ul>
+              {% for solution in market.solutions %}
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>{{ solution }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <p class="market-goal">{{ market.goal }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section capabilities" id="capabilities" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">04</span> Our Capabilities</p>
+        <h2>What we <span class="serif">build</span>.</h2>
+        <p class="section-lede">Software, data and infrastructure brought together into complete digital products.</p>
+      </div>
+
+      <div class="capability-grid">
+        <article class="capability-card glass-card reveal">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
+            <span class="capability-index" aria-hidden="true">01</span>
+          </div>
+          <h3>Full-stack Development</h3>
+          <p>End-to-end application development, from responsive interfaces and application logic to data models and deployment.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal" style="--delay: 60ms">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M7 6.5h.01M10 6.5h.01"/></svg></span>
+            <span class="capability-index" aria-hidden="true">02</span>
+          </div>
+          <h3>Web Application Development</h3>
+          <p>Modern web applications built with Python, Flask and JavaScript, designed for clarity, performance and real use.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal" style="--delay: 120ms">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg></span>
+            <span class="capability-index" aria-hidden="true">03</span>
+          </div>
+          <h3>Python Development</h3>
+          <p>Backend services, automation and application logic built with Python &mdash; the foundation of much of our work.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal" style="--delay: 180ms">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+            <span class="capability-index" aria-hidden="true">04</span>
+          </div>
+          <h3>Database-driven Applications</h3>
+          <p>Applications backed by structured data, using SQL and well-defined schemas to keep information consistent and useful.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></span>
+            <span class="capability-index" aria-hidden="true">05</span>
+          </div>
+          <h3>Cloud Server Infrastructure</h3>
+          <p>Server setup and management for hosting web applications, with attention to deployment, access and reliability.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal" style="--delay: 60ms">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .3-9 6 6 0 0 0-11.6 1.5A4 4 0 0 0 6.5 19h11Z"/></svg></span>
+            <span class="capability-index" aria-hidden="true">06</span>
+          </div>
+          <h3>Cloudflare Technology</h3>
+          <p>Cloudflare-powered DNS, proxying and edge configuration to expose applications securely and efficiently.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal" style="--delay: 120ms">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
+            <span class="capability-index" aria-hidden="true">07</span>
+          </div>
+          <h3>Website Deployment &amp; Management</h3>
+          <p>Deploying and maintaining websites and applications, including server-side hosting and ongoing environment management.</p>
+        </article>
+
+        <article class="capability-card glass-card reveal" style="--delay: 180ms">
+          <div class="capability-top">
+            <span class="capability-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9L19 15Z"/></svg></span>
+            <span class="capability-index" aria-hidden="true">08</span>
+          </div>
+          <h3>Digital Solutions</h3>
+          <p>Practical digital tools and systems shaped around the problem at hand, from student utilities to business applications.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section technology" id="technology" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">05</span> Technology &amp; Infrastructure</p>
+        <h2>The stack behind <span class="serif">the work</span>.</h2>
+        <p class="section-lede">A shared development foundation, extended with the infrastructure skills that keep our applications online.</p>
+      </div>
+
+      <div class="stack-grid">
+        <article class="stack-card glass-card reveal">
+          <header class="stack-head">
+            <img class="stack-avatar" src="{{ url_for('static', filename='images/founders/img.png') }}" alt="" width="1400" height="786" loading="lazy" decoding="async">
+            <div>
+              <h3>Kamleshvar GV</h3>
+              <span>Founder &middot; full-stack &amp; infrastructure</span>
+            </div>
+          </header>
+          <ul class="tech-chips" aria-label="Kamleshvar's technology stack">
+            <li><span class="tech-dot" style="--dot: #3776ab"></span>Python</li>
+            <li><span class="tech-dot" style="--dot: #f7df1e"></span>JavaScript</li>
+            <li><span class="tech-dot" style="--dot: #e34f26"></span>HTML</li>
+            <li><span class="tech-dot" style="--dot: #1572b6"></span>CSS</li>
+            <li><span class="tech-dot" style="--dot: #38bdf8"></span>SQL</li>
+            <li><span class="tech-dot" style="--dot: #d7e3f4"></span>Flask</li>
+            <li><span class="tech-dot" style="--dot: #f6821f"></span>Cloudflare</li>
+            <li><span class="tech-dot" style="--dot: #22d3ee"></span>Cloud server infrastructure</li>
+          </ul>
+          <p class="stack-note">Application development plus the deployment and edge layer behind it.</p>
+        </article>
+
+        <article class="stack-card glass-card reveal" style="--delay: 120ms">
+          <header class="stack-head">
+            <img class="stack-avatar" src="{{ url_for('static', filename='images/founders/annamalai.jpg') }}" alt="" width="892" height="1200" loading="lazy" decoding="async">
+            <div>
+              <h3>M. Annamalai</h3>
+              <span>Co-Founder &middot; full-stack developer</span>
+            </div>
+          </header>
+          <ul class="tech-chips" aria-label="Annamalai's technology stack">
+            <li><span class="tech-dot" style="--dot: #3776ab"></span>Python</li>
+            <li><span class="tech-dot" style="--dot: #f7df1e"></span>JavaScript</li>
+            <li><span class="tech-dot" style="--dot: #e34f26"></span>HTML</li>
+            <li><span class="tech-dot" style="--dot: #1572b6"></span>CSS</li>
+          </ul>
+          <p class="stack-note">Web application development with a focus on implementation and collaboration.</p>
+        </article>
+      </div>
+
+      <div class="shared-strip glass-card reveal" aria-label="Shared foundation">
+        <span class="shared-label">Shared foundation</span>
+        <ul class="shared-list">
+          <li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
+        </ul>
+        <p>Used across the team.</p>
+      </div>
+
+      <div class="tech-infra" id="infrastructure">
+        <div class="tech-infra-head reveal">
+          <span class="card-label">Infrastructure &amp; Cloud</span>
+          <h3>From the browser to the server &mdash; <span class="serif">and the edge</span>.</h3>
+          <p>Infrastructure is part of the product. Our work covers the layers between an application and the people using it &mdash; from DNS and secure exposure to server-side hosting and deployment.</p>
+        </div>
+
+        <div class="infra-grid">
+          <div class="infra-copy reveal">
+            <ul class="check-list">
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>Cloud server management</li>
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>Cloudflare integration</li>
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>DNS configuration</li>
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>Secure application exposure</li>
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>Web application deployment</li>
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>Server-side application hosting</li>
+              <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>Infrastructure management</li>
+            </ul>
+            <p class="infra-note">These capabilities reflect hands-on infrastructure work across our projects. They are presented as technical experience, not as a service-level guarantee.</p>
+          </div>
+
+          <div class="infra-visual reveal" style="--delay: 120ms">
+            <div class="infra-card glass-card">
+              <div class="infra-card-head">
+                <span class="card-label">Infrastructure flow</span>
+                <span class="infra-status"><span class="status-dot" aria-hidden="true"></span> illustrative</span>
+              </div>
+              <div class="flow">
+                <div class="flow-node">
+                  <span class="flow-icon"><svg aria-hidden="true"><use href="#icon-globe"></use></svg></span>
+                  <div><strong>Client / Browser</strong><span>Web application access</span></div>
+                </div>
+                <span class="flow-link" aria-hidden="true"><i></i></span>
+                <div class="flow-node node-cloudflare">
+                  <span class="flow-icon"><svg aria-hidden="true"><use href="#icon-cloud"></use></svg></span>
+                  <div><strong>Cloudflare</strong><span>DNS &middot; proxy &middot; edge</span></div>
+                  <span class="flow-tag">edge</span>
+                </div>
+                <span class="flow-link" aria-hidden="true"><i></i></span>
+                <div class="flow-node">
+                  <span class="flow-icon"><svg aria-hidden="true"><use href="#icon-server"></use></svg></span>
+                  <div><strong>Cloud server</strong><span>Flask &middot; application hosting</span></div>
+                </div>
+                <span class="flow-link" aria-hidden="true"><i></i></span>
+                <div class="flow-node">
+                  <span class="flow-icon"><svg aria-hidden="true"><use href="#icon-layers"></use></svg></span>
+                  <div><strong>Application data</strong><span>SQL &middot; structured storage</span></div>
+                </div>
+              </div>
+              <p class="flow-caption">Illustrative architecture of the stack we work with.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects" id="projects" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">06</span> Completed Projects</p>
+        <h2>From concept to <span class="serif">shipped software</span>.</h2>
+        <p class="section-lede">Real products, built for real use. Every project below has moved beyond an idea and into a working application.</p>
+      </div>
+
+      <div class="project-grid">
+        {% for project in projects %}
+        <article class="project-card glass-card reveal" style="--delay: {{ loop.index0 * 90 }}ms">
+          <a class="project-media" href="{{ project.url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit {{ project.name }} live">
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.image_alt }}" width="1200" height="750" loading="lazy" decoding="async">
+            <span class="project-status"><span class="status-dot" aria-hidden="true"></span> Completed</span>
+            <span class="project-open" aria-hidden="true"><svg><use href="#icon-arrow-up-right"></use></svg></span>
+          </a>
+          <div class="project-body">
+            <div class="project-topline">
+              <span>Project {{ project.number }}</span>
+              <span>{{ project.category }}</span>
+            </div>
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+            <ul class="chip-list" aria-label="{{ project.name }} categories">
+              {% for tag in project.tags %}
+              <li>{{ tag }}</li>
+              {% endfor %}
+            </ul>
+            <div class="project-meta">
+              <span class="project-developer">
+                <img src="{{ url_for('static', filename=project.developer_image) }}" alt="" width="892" height="1200" loading="lazy" decoding="async">
+                <span>Built by <strong>{{ project.developer }}</strong></span>
+              </span>
+              <span class="project-date">{{ project.completed }}</span>
+            </div>
+            <a class="project-link" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">Visit live project <span class="arrow" aria-hidden="true">&#8599;</span></a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section ecosystem" id="ecosystem" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">07</span> Future Product Ecosystem</p>
+        <h2>One company. <span class="serif">Five directions.</span></h2>
+        <p class="section-lede">The long-term plan is to connect education, business, deployment, AI and developer tools into one accessible software ecosystem.</p>
+      </div>
+
+      <p class="plan-note reveal">
+        <svg aria-hidden="true"><use href="#icon-spark"></use></svg>
+        These divisions describe where TechOrigin is heading. They are product directions, not claims that every product is available today.
+      </p>
+
+      <div class="division-grid">
+        {% for division in product_divisions %}
+        <article class="division-card glass-card division-{{ division.accent }}{% if loop.index <= 2 %} division-wide{% endif %} reveal" style="--delay: {{ loop.index0 * 60 }}ms">
+          <div class="division-top">
+            <span class="division-icon"><svg aria-hidden="true"><use href="#icon-{{ division.icon }}"></use></svg></span>
+            <span class="division-badge is-{{ division.badge_kind }}">{{ division.badge }}</span>
+            <span class="division-number" aria-hidden="true">{{ division.number }}</span>
+          </div>
+          <h3>{{ division.name }}</h3>
+          <p class="division-summary">{{ division.summary }}</p>
+          {% if division.image %}
+          <div class="division-media">
+            <img src="{{ url_for('static', filename=division.image) }}" alt="{{ division.image_alt }}" width="1200" height="750" loading="lazy" decoding="async">
+            <span>Built at TechOrigin</span>
+          </div>
+          {% endif %}
+          <ul class="division-items">
+            {% for item in division["items"] %}
+            <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          <p class="division-goal"><span class="card-label">Long-term goal</span>{{ division.goal }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section roadmap" id="roadmap" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">08</span> Five-Year Roadmap</p>
+        <h2>Built step by step. <span class="serif">Planned with intent.</span></h2>
+        <p class="section-lede">The foundation is already in motion. The years ahead turn completed projects into a connected, affordable product ecosystem.</p>
+      </div>
+
+      <div class="journey-block">
+        <div class="timeline-heading reveal">
+          <span class="card-label">2026 &middot; Completed</span>
+          <h3>The foundation, in motion.</h3>
+          <p>Six milestones took TechOrigin from learning cloud technology to delivering working products.</p>
+        </div>
+
+        <ol class="journey-grid">
+          {% for milestone in journey %}
+          <li class="journey-item reveal" style="--delay: {{ loop.index0 * 55 }}ms">
+            <article class="journey-card glass-card">
+              <div class="journey-meta">
+                <span class="journey-date">{{ milestone.date }}</span>
+                <span class="journey-status"><svg aria-hidden="true"><use href="#icon-check"></use></svg>{{ milestone.status }}</span>
+              </div>
+              <span class="journey-icon"><svg aria-hidden="true"><use href="#icon-{{ milestone.icon }}"></use></svg></span>
+              <h4>{{ milestone.title }}</h4>
+              <p>{{ milestone.description }}</p>
+              {% if milestone.activities %}
+              <ul class="journey-activities">
+                {% for activity in milestone.activities %}
+                <li>{{ activity }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              {% if milestone.details %}
+              <dl class="journey-details">
+                {% for detail in milestone.details %}
+                <div>
+                  <dt>{{ detail.label }}</dt>
+                  <dd>
+                    {% if detail.href %}
+                    <a href="{{ detail.href }}" target="_blank" rel="noopener noreferrer">{{ detail.value }} <span aria-hidden="true">&#8599;</span></a>
+                    {% else %}
+                    {{ detail.value }}
+                    {% endif %}
+                  </dd>
+                </div>
+                {% endfor %}
+              </dl>
+              {% endif %}
+            </article>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+
+      <div class="future-roadmap">
+        <div class="timeline-heading timeline-heading-spaced reveal">
+          <span class="card-label">2026 &ndash; 2030 &middot; Direction</span>
+          <h3>Where the roadmap goes next.</h3>
+          <p>2027 to 2030 are planned directions. Timing and scope may evolve as products, customers and technology develop.</p>
+        </div>
+
+        <ol class="future-grid">
+          {% for phase in future_roadmap %}
+          <li class="future-card glass-card future-{{ phase.state }} reveal" style="--delay: {{ loop.index0 * 65 }}ms">
+            <div class="future-top">
+              <span class="future-year">{{ phase.year }}</span>
+              <span class="future-state">{{ phase.status }}</span>
+            </div>
+            <h4>{{ phase.theme }}</h4>
+            <ul class="future-priorities">
+              {% for priority in phase.priorities %}
+              <li>{{ priority }}</li>
+              {% endfor %}
+            </ul>
+            <p class="future-focus"><span>Focus</span>{{ phase.focus }}</p>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing" id="pricing" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">09</span> Affordable Pricing Philosophy</p>
+        <h2>Powerful technology. <span class="serif">Sensible pricing.</span></h2>
+        <p class="section-lede">TechOrigin is being designed around accessible software, transparent plans and room to grow &mdash; without enterprise-only complexity.</p>
+      </div>
+
+      <p class="plan-note reveal">
+        <svg aria-hidden="true"><use href="#icon-tag"></use></svg>
+        Specific plans and prices will be published as products become available. The principles below guide how those plans will be shaped.
+      </p>
+
+      <div class="pricing-grid">
+        {% for segment in pricing_segments %}
+        <article class="pricing-card glass-card pricing-{{ segment.accent }} reveal" style="--delay: {{ loop.index0 * 60 }}ms">
+          <span class="pricing-icon"><svg aria-hidden="true"><use href="#icon-{{ segment.icon }}"></use></svg></span>
+          <h3>{{ segment.name }}</h3>
+          <ul>
+            {% for item in segment["items"] %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </article>
+        {% endfor %}
+      </div>
+
+      <div class="pricing-principles glass-card reveal">
+        <span class="card-label">Pricing principles</span>
+        <ul>
+          {% for principle in pricing_principles %}
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg>{{ principle }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vision" id="vision" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">10</span> Global Vision</p>
+        <h2>Global-quality technology should not be a <span class="serif">luxury</span>.</h2>
+        <p class="section-lede">Students, institutions, small businesses and developers should have access to powerful, reliable software at prices that make sense.</p>
+      </div>
+
+      <article class="vision-manifesto glass-card reveal">
+        <span class="vision-orbit vision-orbit-one" aria-hidden="true"></span>
+        <span class="vision-orbit vision-orbit-two" aria-hidden="true"></span>
+        <div class="vision-manifesto-copy">
+          <span class="card-label">The core belief</span>
+          <p class="vision-quote">{{ core_positioning }}</p>
+          {% for paragraph in core_philosophy %}
+          <p>{{ paragraph }}</p>
+          {% endfor %}
+        </div>
+        <div class="vision-origin">
+          <svg aria-hidden="true"><use href="#icon-globe"></use></svg>
+          <span>Starting in India. Designed for global accessibility.</span>
+        </div>
+      </article>
+
+      <div class="dual-grid vision-statements">
+        <article class="statement-card glass-card reveal">
+          <span class="statement-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <span class="statement-label">Our Vision</span>
+          <p class="statement-text">Build useful, accessible and reliable technology that transforms ideas into practical digital experiences.</p>
+        </article>
+
+        <article class="statement-card statement-alt glass-card reveal" style="--delay: 120ms">
+          <span class="statement-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+          </span>
+          <span class="statement-label">Our Mission</span>
+          <p class="statement-text">Develop modern software solutions, strengthen digital infrastructure and deliver technology that solves real-world problems.</p>
+        </article>
+      </div>
+
+      <div class="global-grid">
+        {% for pillar in global_pillars %}
+        <article class="global-card glass-card reveal" style="--delay: {{ loop.index0 * 70 }}ms">
+          <span class="global-icon"><svg aria-hidden="true"><use href="#icon-{{ pillar.icon }}"></use></svg></span>
+          <div>
+            <h3>{{ pillar.name }}</h3>
+            <p>{{ pillar.text }}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+      <p class="global-note reveal">Our global ambition is a long-term direction. Today, TechOrigin is building from India, one product and one improvement at a time.</p>
+    </div>
+  </section>
+
+  <section class="section growth" id="growth" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">11</span> Growth Strategy</p>
+        <h2>Grow through <span class="serif">useful work</span>.</h2>
+        <p class="section-lede">The strategy is straightforward: build products people value, keep them affordable, make the infrastructure dependable and stay close to the community.</p>
+      </div>
+
+      <div class="growth-grid">
+        {% for pillar in growth_pillars %}
+        <article class="growth-card glass-card reveal" style="--delay: {{ loop.index0 * 70 }}ms">
+          <span class="growth-icon"><svg aria-hidden="true"><use href="#icon-{{ pillar.icon }}"></use></svg></span>
+          <h3>{{ pillar.name }}</h3>
+          <p>{{ pillar.text }}</p>
+        </article>
+        {% endfor %}
+      </div>
+
+      <article class="bridge-strip glass-card reveal">
+        <div class="bridge-logo">
+          <img src="{{ url_for('static', filename='images/companies/bridgethegap.png') }}" alt="Bridge the Gap Robotics logo" width="900" height="522" loading="lazy" decoding="async">
+        </div>
+        <div class="bridge-copy">
+          <span class="card-label">Community in practice</span>
+          <h3>Bridge the Gap Robotics</h3>
+          <p>Both founders contribute to Bridge the Gap Robotics beyond TechOrigin &mdash; supporting technology initiatives, communication and the coordination of shared work.</p>
+          <div class="bridge-roles">
+            <span><strong>Kamleshvar GV</strong> &middot; Outreach Lead</span>
+            <span><strong>M. Annamalai</strong> &middot; Coordinator</span>
+          </div>
+        </div>
+        <a class="btn btn-ghost bridge-link" href="https://bridgethegaprobotics.com/" target="_blank" rel="noopener noreferrer">Visit the organisation <span class="arrow" aria-hidden="true">&#8599;</span></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact" data-section>
+    <div class="container">
+      <div class="section-head center reveal">
+        <p class="eyebrow"><span class="eyebrow-index">12</span> Contact</p>
+        <h2>Have an idea <span class="serif">worth building?</span></h2>
+        <p class="section-lede">For software projects, web applications, infrastructure solutions or a conversation about technology, connect directly with our founders.</p>
+      </div>
+
+      <div class="contact-grid">
+        {% for person in [founder, cofounder] %}
+        <article class="contact-card glass-card reveal{% if loop.last %} contact-card-alt{% endif %}"{% if loop.last %} style="--delay: 120ms"{% endif %}>
+          <header class="contact-card-head">
+            <img class="contact-avatar" src="{{ url_for('static', filename=person.image) }}" alt="{{ person.name }}, {{ person.role }} at TechOrigin" width="{{ person.image_width }}" height="{{ person.image_height }}" loading="lazy" decoding="async">
+            <div class="contact-identity">
+              <span class="contact-role"><span class="contact-role-dot" aria-hidden="true"></span>{{ person.role }}</span>
+              <h3 class="contact-name">{{ person.name }}</h3>
+              <p class="contact-bio">{{ person.description }}</p>
+            </div>
+          </header>
+
+          <div class="contact-rows">
+            {% for contact in person.contacts %}
+              {% if contact.href %}
+              <a class="contact-row" href="{{ contact.href }}"{% if contact.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                <span class="contact-row-icon"><svg aria-hidden="true"><use href="#icon-{{ contact.icon }}"></use></svg></span>
+                <span class="contact-row-text">
+                  <span class="contact-row-label">{{ contact.label }}</span>
+                  <span class="contact-row-value">{{ contact.value }}</span>
+                </span>
+                {% if contact.external %}<span class="contact-row-arrow" aria-hidden="true">&#8599;</span>{% endif %}
+              </a>
+              {% else %}
+              <div class="contact-row is-placeholder">
+                <span class="contact-row-icon"><svg aria-hidden="true"><use href="#icon-{{ contact.icon }}"></use></svg></span>
+                <span class="contact-row-text">
+                  <span class="contact-row-label">{{ contact.label }}</span>
+                  <span class="contact-row-value">Details to be added</span>
+                </span>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="contact-card-foot">
+            <span class="card-label">{{ person.foot_label }}</span>
+            <span>{{ person.foot_note }}</span>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <script type="application/json" id="terminal-data">{{ terminal_data|tojson }}</script>
+{% endblock %}
