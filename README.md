@@ -101,3 +101,15 @@ The `og` image was composed from the original TechOrigin wordmark for social sha
 - No contact submission backend is implemented, and the site does not claim that a form works.
 - No customer numbers, testimonials, awards or certifications are fabricated.
 - Infrastructure capabilities are presented as hands-on technical experience, not service guarantees.
+
+
+## Visual refinement
+
+The stylesheet has been refined toward a more restrained, editorial company-site aesthetic:
+- reduced decorative gradients, glow and glass effects
+- more neutral dark surfaces and softer accent colours
+- smaller corner radii and quieter shadows
+- a simpler hero treatment while retaining the interactive terminal
+- reduced decorative motion and improved reduced-motion handling
+
+The Flask routes, page content, project records, founder details and terminal JavaScript were preserved.
